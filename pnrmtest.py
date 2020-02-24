@@ -38,8 +38,14 @@ def tone(freq, length):
     return np.sin(np.arange(slen) * t)
 
 
-def play_wave(stream, samples):
-    stream.write(samples.astype(np.float32).tostring())
+def play_wave(stream, chunks):
+    chunk = np.concatenate([chunks]) * 0.25
+    fade = 200
+    fade_in = np.arange(0., 1., 1/fade)
+    fade_out = np.arange(1., 0., -1/fade)
+    chunk[:fade] = np.multiply(chunk[:fade], fade_in)
+    chunk[-fade:] = np.multiply(chunk[-fade:], fade_out)
+    stream.write(chunk.astype(np.float32).tostring())
 
 
 p = pyaudio.PyAudio()

@@ -7,3 +7,13 @@
  このあたりが参考になりそう
  http://ja.voidcc.com/question/p-pmxfnmfy-mh.html
  https://stackoverflow.com/questions/42192239/remove-control-clicking-sound-using-pyaudio-as-an-oscillator
+
+## Installation
+
+Mac
+
+```bash
+brew install portaudio
+pipenv install
+python pnrmtest.py
+```

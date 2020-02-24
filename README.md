@@ -15,4 +15,5 @@ Mac
 ```bash
 brew install portaudio
 pipenv install
+python pnrmtest.py
 ```
